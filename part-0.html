@@ -1,1 +1,263 @@
 
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>enragednuke by enragednuke</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/enragednuke">View On GitHub</a></li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>enragednuke</h1>
+          <p>personal github website</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/enragednuke">enragednuke</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a id="absolutely-basics-of-r" class="anchor" href="#absolutely-basics-of-r" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Absolutely Basics of R</h1>
+
+<p><a href="https://github.com/enragednuke/R-language-cheatsheet/blob/master/README.md">Index page</a></p>
+
+<h2>
+<a id="installing-packages" class="anchor" href="#installing-packages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installing packages</h2>
+
+<div class="highlight highlight-source-r"><pre>install.packages()
+<span class="pl-c"># ( you will be prompted to select a mirror to download from once per session )</span>
+<span class="pl-c"># ( then you will be prompted for to select a package )</span></pre></div>
+
+<p>You should also be able to do this:</p>
+
+<div class="highlight highlight-source-r"><pre>install.packages(<span class="pl-s"><span class="pl-pds">'</span>package_name<span class="pl-pds">'</span></span>)</pre></div>
+
+<p>So you should do this first before anything else:</p>
+
+<div class="highlight highlight-source-r"><pre>install.packages(<span class="pl-s"><span class="pl-pds">'</span>dplyr<span class="pl-pds">'</span></span>)
+install.packages(<span class="pl-s"><span class="pl-pds">'</span>tidyr<span class="pl-pds">'</span></span>)
+install.packages(<span class="pl-s"><span class="pl-pds">'</span>ggplot2<span class="pl-pds">'</span></span>)</pre></div>
+
+<h2>
+<a id="importing-packages" class="anchor" href="#importing-packages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Importing packages</h2>
+
+<div class="highlight highlight-source-r"><pre>library(<span class="pl-smi">package_name</span>)
+
+<span class="pl-c"># So, you'll want this at the top of your scripts:</span>
+library(<span class="pl-smi">dplyr</span>)
+library(<span class="pl-smi">tidyr</span>)
+library(<span class="pl-smi">ggplot2</span>)</pre></div>
+
+<h2>
+<a id="fundamental-basics" class="anchor" href="#fundamental-basics" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fundamental basics</h2>
+
+<p>Read this: <a href="http://www.r-tutor.com/r-introduction">http://www.r-tutor.com/r-introduction</a>. It contains almost <strong>every</strong> basic programming methodlogy you may think of googling from other languages (like making arrays, length of str/array, etc). You can just skim and look at code bits if it's too long to read fully.</p>
+
+<p>You should be familiar with the syntax: <code>c(args*)</code> (used <strong>very</strong> often), <code>is.class_name(object)</code>, <code>sprintf(str, args*)</code>, <code>substr(str, start=int, stop=int)</code>, <code>sub(to_replace, replace_with, str)</code>, <code>paste(str, str)</code>, <code>class(object)</code>. Most of these will be very straight forward and won't need any real reading on your part, just know they exist and they're usage syntax.</p>
+
+<p>Note: R treats the class <code>character</code> the same as <code>string</code>. So <code>is.character('abc')</code> will yield <code>TRUE</code>.</p>
+
+<p><details>
+<summary>Conditionals:</summary></details></p>
+
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>|</code></td>
+<td>OR</td>
+</tr>
+<tr>
+<td><code>&amp;</code></td>
+<td>AND</td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td>NOT</td>
+</tr>
+</tbody>
+</table>
+
+<p></p>
+
+<h3>
+<a id="vector-logic" class="anchor" href="#vector-logic" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Vector logic</h3>
+
+<p>In R, the objects known as <strong>Vectors</strong> are basically just arrays from any other language in existence. <strong>VERY IMPORTANT NOTE: Indices in R start at ONE, NOT ZERO!</strong></p>
+
+<p>You can generate them using the syntax <code>c(args*)</code> which makes an array with contents <code>args*</code> so for example: <code>c(1,2,3)</code> = <code>[1, 2, 3]</code>. You can also use the <code>c(args*)</code> method to concatenate two vectors together, so <code>c(c(1,2,3), c(3,4,5))</code> = <code>[1, 2, 3, 3, 4, 5]</code>.</p>
+
+<p>I <strong>highly recommend</strong> viewing the Vector portion of the guide I posted above. It will be extremely helpful in understanding how vector logic works. For example: adding (using <code>+</code>) two vectors together will not concatenate them, it will add the contents together. So <code>c(1,2,3) + c(3,4,5)</code> = <code>[4, 6, 8]</code>. Multiplying a vector will multiply its contents.</p>
+
+<p>An important rule is known as the <strong>recycling rule</strong>. Operating on two vectors of different length will extend the shorter vector using its own values again. For example: <code>c(1,2,3) + c(3,4,5,6,7,8,9)</code> is essentially doing <code>c(1,2,3,1,2,3,1) + c(3,4,5,6,7,8,9)</code>.</p>
+
+<p><details>
+<summary><strong>Nifty trick</strong>: What will <code>c(1, -1) * c(1, 2, 4, 8, 16, 32)</code> create?</summary>
+<code>[1, -2, 4, -8, 16, -32]</code>
+aka an alternating sequence!
+</details></p>
+
+<p><strong>Be careful with negative indices</strong>. Unlike other languages, negative indices will <strong>not</strong> search from the back of an array. So <code>array[-1]</code> will not return the last value of an array. Negative indices will instead return the vector with the item at the absolute value of the index removed.</p>
+
+<p><details>
+<summary>Code example</summary></details></p>
+
+<div class="highlight highlight-source-r"><pre><span class="pl-k">&gt;</span> <span class="pl-v">a</span> <span class="pl-k">=</span> c(<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>)
+<span class="pl-k">&gt;</span> <span class="pl-smi">a</span>
+[<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>]
+<span class="pl-k">&gt;</span> <span class="pl-smi">a</span>[<span class="pl-k">-</span><span class="pl-c1">1</span>]
+[<span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>]
+<span class="pl-k">&gt;</span> <span class="pl-smi">a</span>[<span class="pl-k">-</span><span class="pl-c1">3</span>]
+[<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">4</span>]</pre></div>
+
+<p></p>
+
+<h3>
+<a id="matrices" class="anchor" href="#matrices" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Matrices</h3>
+
+<p>In <strong>R</strong>, there are data types known as <strong>Matrices</strong>. They're a more convenient way of representing 2-dimensional arrays. You can supply a large feed of values and then specify specific column and row values to restrict it. You can then refer to it like a normal 2D array (i.e. <code>(c[x, y])</code>).</p>
+
+<p>It is done using the <code>matrix(data_vector, nrow=int, ncol=int, byrow=TRUE)</code> method.</p>
+
+<p><details>
+<summary>Code example</summary></details></p>
+
+<div class="highlight highlight-source-r"><pre><span class="pl-v">A</span> <span class="pl-k">=</span> <span class="pl-k">matrix</span>(
+  c(<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>, <span class="pl-c1">6</span>),
+  <span class="pl-v">nrow</span><span class="pl-k">=</span><span class="pl-c1">2</span>,
+  <span class="pl-v">ncol</span><span class="pl-k">=</span><span class="pl-c1">3</span>,
+  <span class="pl-v">byrow</span><span class="pl-k">=</span><span class="pl-c1">TRUE</span>)</pre></div>
+
+<p>Generates the following table:</p>
+
+<pre><code>1 2 3
+4 5 6
+</code></pre>
+
+<p></p>
+
+<p>We can supply the matrix/table with labels using <code>rownames(matrix)</code>, <code>colnames(matrix)</code>, or <code>dimnames(matrix)</code>. The first and second take in a single vector as their equality (you call these using <code>method = val</code>, not using another param) while the third takes in a list of column names and row names.</p>
+
+<p><details>
+<summary>Code example</summary></details></p>
+
+<div class="highlight highlight-source-r"><pre>dimnames(<span class="pl-smi">A</span>) <span class="pl-k">=</span> <span class="pl-k">list</span>(
+            c(<span class="pl-s"><span class="pl-pds">'</span>row1<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>row2<span class="pl-pds">'</span></span>),
+            c(<span class="pl-s"><span class="pl-pds">'</span>col1<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>col2<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>col3<span class="pl-pds">'</span></span>))</pre></div>
+
+<p>This produces:</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>col1</th>
+<th>col2</th>
+<th>col3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>row1</strong></td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td><strong>row2</strong></td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+
+<p></p>
+
+<p>Once you label the column/row names, you can reference values at certain indices using those names (using the example result, <code>A['row2', 'col1']</code> = <code>4</code>)</p>
+
+<p>You can combine matrices using <code>cbind(m1, m2)</code> (if equal rows) or <code>rbind(m1, m2)</code> (if equal columns). Backwards, but it makes sense because <code>cbind</code> binds by attaching <code>m2</code> to the right side of <code>m1</code>. This is only possible if they have equal row counts. Same applies for <code>rbind</code> which attaching <code>m2</code> to the bottom of <code>m1</code>.</p>
+
+<p>You can also output the contents as a single vector using <code>c(matrix)</code></p>
+
+<h2>
+<a id="data-frame" class="anchor" href="#data-frame" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Data Frame</h2>
+
+<p>You can generate a table using <code>data.frame(args*)</code> where <code>args*</code> represents a series of <code>col=vector</code> arguments.</p>
+
+<div class="highlight highlight-source-r"><pre><span class="pl-smi">tbl</span> <span class="pl-k">&lt;-</span> <span class="pl-k">data.frame</span>(<span class="pl-v">col1</span> <span class="pl-k">=</span> c(<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">4</span>,<span class="pl-c1">3</span>), <span class="pl-v">col2</span> <span class="pl-k">=</span> c(<span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>,<span class="pl-s"><span class="pl-pds">'</span>c<span class="pl-pds">'</span></span>,<span class="pl-s"><span class="pl-pds">'</span>d<span class="pl-pds">'</span></span>,<span class="pl-s"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>))
+<span class="pl-smi">tbl</span></pre></div>
+
+<p>The result (note that the far left column is a sort of <code>id</code> column:</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>col1</th>
+<th>col2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>1</em></td>
+<td>1</td>
+<td>'a'</td>
+</tr>
+<tr>
+<td><em>2</em></td>
+<td>2</td>
+<td>'c'</td>
+</tr>
+<tr>
+<td><em>3</em></td>
+<td>4</td>
+<td>'d'</td>
+</tr>
+<tr>
+<td><em>4</em></td>
+<td>3</td>
+<td>'e'</td>
+</tr>
+</tbody>
+</table>
+
+<p>Take note that the variable names for the vectors become the actual column names (plan ahead!)</p>
+
+<p>When working with a data table, you can look at strictly the columns by doing this: <code>table[[index]]</code>, <code>table[[col_name]]</code>, or <code>table[,col_name]</code>. This will return a vector of the values in that column.</p>
+
+<p>You can slice the columns (i.e. return the column name and the row names in the table) by doing <code>table[index]</code> or <code>table[col_name]</code>. You can also view multiple columns using a vector, i.e. <code>table[c(col_name1, col_name2, ...)]</code>.</p>
+
+<p>To slice specific <strong>rows</strong>, however, you use <code>table[index,]</code> or <code>table[row_name,]</code>. Similarly, you can pass a vector instead (just lke column slicing). Interestingly enough, you can also use <strong>logical indexing</strong>. It's a pseudo-filter. Example: <code>table[table$col_name == 'hello',]</code> or <code>table[table$count &gt; 5,]</code>. You can then chain it into another slice/strict slice like this: <code>table[table$count &gt; 5]$swagamt</code>. That will return a vector of the <code>swagamt</code> values of rows in <code>table</code> with a <code>count</code> of higher than 5.</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
