@@ -1,2 +1,3 @@
 # enragednuke.github.io
-personal github website
+
+Personal website using Github's .io interface
