@@ -11,6 +11,7 @@ First and foremost: Shared examples do not need to be restricted to classes that
 
 1. Multiple classes that inherit a superclass (the obvious)
 2. Views that all act similarly (i.e. data pages)
+3. Skeleton code that is often left as a result of autogeneration
 
 Let's look at the first point,
 
