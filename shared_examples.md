@@ -91,7 +91,7 @@ class C < A
 end
 ```
 
-And the respective shared examples changes...
+And the respective shared examples changes... (specifically note the addition of a test to all 3 suites as well as the forced reduction in the shared example)
 
 ```ruby
 shared_examples_for A do |obj:| # Required parametrization
@@ -142,7 +142,7 @@ end
 
 You could leave the shared example as it was and simply not have the `it_behaves_like` statement in your `C` class tests, but to each their own. You could also add another parameter to the shared example and have it represent what the class should return on calling `hello` but default to the standard. Something like, `shared_examples_for A do |obj:, hello_return: "Hello, world!"|` but at this point I think you may start becoming **too** abstract for the purpose of shared examples.
 
-Ideally, though, you wouldn't just test potentially overridden methods in shared examples and test them separately.
+Ideally, though, you wouldn't just test potentially overridden methods in shared examples and test them separately (unless you know you can test them all simply, like if the output all follows a format "I'm a {variable}!", etc)
 
 Onto the second point!
 
