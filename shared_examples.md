@@ -3,6 +3,8 @@
 
 *Disclaimer:* Keep in mind the code in this article may become outdated as time progresses. Please use at your own discretion and make sure you are updated on any major syntactical changes before utilizing the code structures used below.
 
+This article assumes you have intermediate knowledge of Ruby and RSpec. A large portion of this article also uses concepts in Ruby on Rails.
+
 Many people tend to write off RSpec's shared examples because of various articles like this one. I don't think that's a good idea and I'll show you exactly how I enjoy employing the wonderful feature.
 
 First and foremost: Shared examples do not need to be restricted to classes that inherit a common superclass. It is a common usage, but most certainly not the only way to use it. The couple situations I find shared examples most useful as a Ruby on Rails developer are as following:
