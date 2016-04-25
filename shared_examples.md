@@ -8,6 +8,73 @@ First and foremost: Shared examples do not need to be restricted to classes that
 2. Views that all act similarly (i.e. data pages)
 3. Broad spectrums for various categories
 
-That last one may sound a bit weird, but it's pretty much the second point but on an even broader scale applied to anything.
+That last one may sound a bit weird, but it's pretty much the second point but on an even broader scale applied to "anything".
 
-(...)
+Let's look at the first point: subclassing.
+
+```ruby
+class A
+  def hello
+    "Hello, world!"
+  end
+end
+
+class B < A
+  def yay
+    "I'm happy!"
+  end
+end
+
+class C < B
+  def woohoo
+    "WOOHOO!"
+  end
+end
+```
+
+
+It's important that shared examples only cover things that you know **every** subclass will have or follow some sort of similar pattern. If it's something the subclasses often override, you may choose to include the `respond_to` matcher, but you won't want to test the return value of the method itself in the shared example. So for the above, we may want to do the following:
+
+```ruby
+shared_examples_for A do |obj:| # Required parametrization
+  context 'hello' do
+    it 'responds to' do
+      expect(obj).to respond_to(:hello)
+    end
+    it 'returns properly' do
+      # And is not overwritten
+      expect(obj.hello).to be('Hello, world!') 
+    end
+  end
+end
+
+describe A do
+  it_behaves_like A, obj: A.new
+end
+
+describe B do
+  let!(:b_obj) { B.new }
+  it_behaves_like A, obj: b_obj
+  context 'yay' do
+    it 'responds to' do
+      expect(b_obj).to respond_to(:yay)
+    end
+    it 'returns properly' do
+      expect(b_obj.yay).to be('I\'m happy!') 
+    end
+  end
+end
+
+describe C do
+  let!(:c_obj) { C.new }
+  it_behaves_like A, obj: c_obj
+  context 'woohoo' do
+    it 'responds to' do
+      expect(c_obj).to respond_to(:woohoo)
+    end
+    it 'returns properly' do
+      expect(c_obj.woohoo).to be('WOOHOO!') 
+    end
+  end
+end
+```
