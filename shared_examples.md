@@ -25,7 +25,7 @@ class B < A
   end
 end
 
-class C < B
+class C < A
   def woohoo
     "WOOHOO!"
   end
@@ -42,7 +42,7 @@ shared_examples_for A do |obj:| # Required parametrization
       expect(obj).to respond_to(:hello)
     end
     it 'returns properly' do
-      # And is not overwritten
+      # And has not had its output modified
       expect(obj.hello).to be('Hello, world!') 
     end
   end
@@ -78,3 +78,66 @@ describe C do
   end
 end
 ```
+
+However, you may want to note that if you overwrote `hello` in C, you would want to drastically change this code. So,
+
+```ruby
+class C < A
+  def hello
+    "OVERRIDDEN MWUAHAH!"
+  end
+end
+```
+
+And the respective shared examples changes...
+
+```ruby
+shared_examples_for A do |obj:| # Required parametrization
+  context 'hello' do
+    it 'responds to' do
+      expect(obj).to respond_to(:hello)
+    end
+  end
+end
+
+describe A do
+  it_behaves_like A, obj: A.new
+  context 'hello' do
+    it 'returns properly' do
+      expect(c_obj.hello).to be('Hello, world!') 
+    end
+  end
+end
+
+describe B do
+  let!(:b_obj) { B.new }
+  it_behaves_like A, obj: b_obj
+  context 'yay' do
+    it 'responds to' do
+      expect(b_obj).to respond_to(:yay)
+    end
+    it 'returns properly' do
+      expect(b_obj.yay).to be('I\'m happy!') 
+    end
+  end
+  context 'hello' do
+    it 'returns properly' do
+      expect(c_obj.hello).to be('Hello, world!') 
+    end
+  end
+end
+
+describe C do
+  let!(:c_obj) { C.new }
+  it_behaves_like A, obj: c_obj
+  context 'hello' do
+    it 'returns properly' do
+      expect(c_obj.hello).to be('OVERRIDDEN MWUAHAH!') 
+    end
+  end
+end
+```
+
+You could leave the shared example as it was and simply not have the `it_behaves_like` statement in your `C` class tests, but to each their own. You could also add another parameter to the shared example and have it represent what the class should return on calling `hello` but default to the standard. Something like, `shared_examples_for A do |obj:, hello_return: "Hello, world!"|` but at this point I think you may start becoming **too** abstract for the purpose of shared examples.
+
+Ideally, though, you wouldn't just test potentially overridden methods in shared examples and test them separately.
