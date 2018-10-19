@@ -1,0 +1,171 @@
+body {
+	/* background-color: rgba(0,0,0,1.0) !important; */
+  background-image: url('../images/portfolio/bg1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+	color: white !important;
+	margin: 0 auto;
+
+	font-family: 'Roboto', sans-serif !important;
+}
+
+
+.back-button {
+  position: absolute;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100px;
+  height: 40px;
+
+  border: 1px solid rgba(227, 123, 0, 1.0);
+  color: rgba(227, 123, 0, 1.0) !important;
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.container {
+  min-height: 1000px;
+  width: 100% !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* END GENERIC CSS STUFF */
+
+.container .header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container .header .i-am,
+.container .header .flavor-text {
+  font-size: 20px;
+  font-family: "Arial", sans-serif;
+  color: rgba(227, 123, 0, 1.0);
+}
+
+.container .header .name {
+  font-weight: bolder;
+  font-size: 50px;
+  color: white;
+  font-family: "Helvetica", sans-serif;
+}
+
+.container .header .i-am {
+  margin-bottom: -18px;
+}
+
+.container .header .flavor-text {
+  margin-top: -20px;
+  text-align: right;
+}
+
+.container .header div {
+  width: 415px;
+}
+
+.section {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.section .icon {
+  height: 50px;
+  width: 50px;
+  background-size: cover;
+}
+
+.section .icon.scripting {
+  background-image: url('../images/portfolio/scripting-or.png');
+}
+
+.section .icon.algorithms {
+  background-image: url('../images/portfolio/algorithms-or.png');
+}
+
+.section .icon.web {
+  background-image: url('../images/portfolio/web-or.png');
+}
+
+.section .label {
+  font-size: 40px;
+  color: rgba(227, 123, 0, 1.0);
+}
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.divisor {
+  width: 80%;
+  margin: 3.2% 10% 3% 10%;
+  height: 3px;
+  background: linear-gradient(-90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0))
+}
+
+.list-item {
+  padding: 1.2% 2% 2% 2%;
+  margin: 3% 1% 0% 3%;
+  /* background-color: rgba(0, 0, 0, 0.6); */
+  border-radius: 5px;
+}
+
+.list-item .li-header {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: left !important;
+}
+
+.list-item .explanation {
+  font-size: 14px;
+  color: rgba(244, 242, 227, 1.0);
+  margin-top: 10px;
+}
+
+.list-item a .view-button {
+  width: 135px;
+  height: 45px;
+  border: 1px solid rgba(227, 123, 0, 1.0);
+  border-radius: 2px;
+  color: rgba(227, 123, 0, 1.0);
+  background-color: rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.list-item a .view-button:hover,
+.back-button:hover {
+  color: rgba(255, 160, 50, 1.0) !important;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 160, 50, 1.0);
+}
+
+.list-item a .view-button.long-button {
+  width: 250px;
+}

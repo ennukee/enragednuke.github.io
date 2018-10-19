@@ -1,0 +1,208 @@
+body, html {
+	height: 100vh;
+	width: 100vw;
+	margin: 0;
+	padding: 0;
+	background-image: url('../images/index-back2.png');
+	background-size: cover;
+}
+
+section {
+	vertical-align: center;
+}
+
+a, a:hover, a:visited, a:link, a:active {
+	text-decoration: none !important;
+	color:white;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+
+	width: 100vw;
+	height: 100vh;
+}
+
+#name, #about-me {
+	max-width: 600px;
+	min-width: 450px;
+	width: 50%;
+	height: 800px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+}
+
+.code {
+	font-family: 'Droid Sans Mono', verdana;
+}
+
+.slogan-div, .slogan {
+	font-size: 12px;
+	margin-top: 20px;
+	border-radius: 5px;
+	background-color: rgba(0,0,0,0.6);
+	padding: 7px 15px 7px 15px;
+	height: 150px;
+	width: 90%;
+}
+
+.faded-black-back {
+	margin-top: 20px;
+	border-radius: 5px;
+	background-color: rgba(0,0,0,0.6);
+	padding: 20px 20px 20px 20px;
+	width: 90%;
+	color: white;
+	border: 2px solid;
+}
+
+.faded-white-back {
+	margin-top: 20px;
+	border-radius: 5px;
+	background-color: rgba(255,255,255,0.6);
+	padding: 7px 15px 7px 15px;
+	width: 90%;
+	color: black;
+}
+
+.name-bar {
+	width: 100%;
+	color: black;
+	padding: 0;
+	margin: 0;
+	font-family: 'Fira Sans', sans-serif;
+	font-size: 90px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.subname-bar {
+	color: black;
+	padding: 0;
+	margin: 0;
+	font-family: 'Fira Sans', sans-serif;
+	font-size: 20px;
+	text-align: center;
+}
+
+.navbar {
+	display: flex;
+	align-items: center;
+	background-color: rgba(0,0,0,0.6);
+	text-align: center;
+	height: 55px;
+}
+
+.navbar .icon {
+	display: inline;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.navbar .linkedin-icon img {
+	transform: scale(0.8);
+}
+
+.navbar .facebook-icon img {
+	width: 38px;
+	height: 38px;
+}
+
+.navbar .about-me-icon img {
+	width: 38px;
+	height: 38px;
+}
+
+.navbar .about-me-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 38px;
+	height: 38px;
+	background-color: white;
+	border-radius: 2px;
+	margin-left: 26px;
+	font-family: 'Fira Sans', sans-serif;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.navbar .portfolio-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	color: black;
+	width: 38px;
+	height: 38px;
+	background-color: white;
+	border-radius: 2px;
+	margin-left: 26px;
+	font-family: 'Fira Sans', sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+ #about-me .portfolio-icon {
+ 	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	margin-top: 10px;
+	color: black;
+	width: 38px;
+	height: 38px;
+	background-color: white;
+	border-radius: 2px;
+	font-family: 'Fira Sans', sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+.col-sm-3 {
+	width: 25%;
+}
+
+.col-sm-2 {
+	width: 16%;
+}
+
+.col-sm-1 {
+	width: 8%;
+}
+
+.center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.fira-sans {
+	font-family: 'Fira Sans', sans-serif;
+}
+
+.social-media-sect {
+	display: flex;
+	justify-content: space-between;
+}
+
+#linkedin-logo {
+	height: 100%;
+	width: 100%;
+}
+
+#github-logo {
+	height: 100%;
+	width: 100%;
+}
+
+#facebook-logo {
+	height: 100%;
+	width: 100%;
+}

@@ -1,0 +1,188 @@
+body, .content-container {
+	width: 100%;
+	height: 100%;
+}
+
+a, a:hover, a:visited, a:link, a:active {
+  text-decoration: none !important;
+  color: #FF3A36;
+}
+
+a:hover {
+  text-decoration: none !important;
+  color: #FFACA8;
+}
+
+.content-container {
+	color: white;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 99;
+}
+
+.center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.fira-sans {
+	font-family: 'Fira Sans', sans-serif;
+}
+
+.data {
+	display: flex;
+	flex-direction: row;
+	width: 800px;
+	height: 450px;
+
+	margin-top: 10px;
+	border-radius: 5px;
+	background-color: rgba(155,155,155,0.1);
+	padding: 15px 25px 15px 25px;
+}
+
+.modal {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  width: 385px;
+  height: 165px;
+  border-radius: 3px;
+  background-color: rgba(155,155,155,0.2);
+  color:white;
+  z-index: 100;
+  padding: 15px 15px 15px 15px;
+}
+
+.info {
+	width: 40%;
+}
+.talents {
+  margin-left: 20px;
+	width: 60%;
+}
+.bio1, .bio2, .bio3, .bio4, .bio5 {
+	margin-top: 10px;
+}
+.bio4 {
+	margin-top: 20px;
+	color: #FF3A36;
+}
+
+.name {
+	margin-left: 20px;
+	font-size: 60px;
+	font-weight: bold;
+
+}
+.title {
+	font-size: 42px;
+	font-weight: bold;
+	color: #FF3A36;
+}
+.bio {
+	margin-top: 15px;
+	font-size: 15px;
+	font-weight: none;
+}
+
+.inline {
+  display: inline;
+}
+
+.pbar {
+  border-radius: 2px;
+  background-color: #FF3A36;
+  height: 20px;
+}
+
+#t-label {
+  width: 175px;
+}
+#t-prog {
+  float: right;
+  width: 280px;
+}
+
+#talent-title2 {
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+#talent-title {
+  margin-bottom: 15px;
+}
+
+
+@keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-webkit-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-moz-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-ms-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+
+@keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
+}
+@-webkit-keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
+}
+@-moz-keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
+}
+@-ms-keyframes move-clouds-back {
+    from {background-position: 0;}
+    to {background-position:10000px 0;}
+}
+
+.stars, .twinkling, .clouds {
+  position:absolute;
+  top:0;
+  left:0;
+  
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+.stars {
+  background:#000 url(../images/stars.png) repeat top center;
+  z-index:0;
+}
+
+.twinkling{
+  background:transparent url(../images/twinkling.png) repeat top center;
+  z-index:1;
+
+  -moz-animation:move-twink-back 200s linear infinite;
+  -ms-animation:move-twink-back 200s linear infinite;
+  -o-animation:move-twink-back 200s linear infinite;
+  -webkit-animation:move-twink-back 200s linear infinite;
+  animation:move-twink-back 200s linear infinite;
+}
+
+.clouds{
+    background:transparent url(../images/clouds.png) repeat top center;
+    z-index:3;
+
+  -moz-animation:move-clouds-back 200s linear infinite;
+  -ms-animation:move-clouds-back 200s linear infinite;
+  -o-animation:move-clouds-back 200s linear infinite;
+  -webkit-animation:move-clouds-back 200s linear infinite;
+  animation:move-clouds-back 200s linear infinite;
+}
